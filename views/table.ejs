@@ -1,0 +1,40 @@
+<link href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/table.css">
+
+<div class="container">
+    <h2><a href="/"><i class="fa-solid fa-house"></i> / </a>
+        <%= file %>
+    </h2>
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <% for(let i=0; i < keys.length; i++ ) {%>
+                    <th>
+                        <%= keys[i] %>
+                    </th>
+                <% } %>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let k=1; k < results.length;k++) { %>
+                <% var ans=results[k] %>
+                    <tr>
+                        <% for(let j=0; j < keys.length; j++) { %>
+                            <td>
+                                <%= ans[j] %>
+                            </td>
+                        <% } %>
+                    </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
+
+<!-- Page level plugin JavaScript-->
+<script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+    });
+</script>
